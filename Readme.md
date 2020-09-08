@@ -19,6 +19,7 @@ In your vim/neovim run the following command:
 - Provide eslint commands:
   - `eslint.createConfig` create eslint config file.
   - `eslint.executeAutofix` fix all fixable issues of current buffer.
+  - `eslint.executeFix` fix single fixable issue of current buffer.
 
 ## Configuration options
 

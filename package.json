@@ -27,6 +27,11 @@
         "command": "eslint.executeAutofix"
       },
       {
+        "title": "Fix single fixable problem",
+        "category": "ESLint",
+        "command": "eslint.executeFix"
+      },
+      {
         "title": "Create a '.eslintrc' config file",
         "category": "ESLint",
         "command": "eslint.createConfig"

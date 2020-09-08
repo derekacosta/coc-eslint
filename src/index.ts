@@ -299,6 +299,22 @@ export async function activate(context: ExtensionContext): Promise<void> {
       })
   }))
 
+  subscriptions.push(commands.registerCommand('eslint.executeFix', async () => {
+    let document = await workspace.document
+    let textDocument: VersionedTextDocumentIdentifier = {
+      uri: document.uri,
+      version: document.version
+    }
+    let params: ExecuteCommandParams = {
+      command: 'eslint.applySingleFix',
+      arguments: [textDocument]
+    }
+    client.sendRequest(ExecuteCommandRequest.type, params)
+      .then(undefined, () => {
+        workspace.showMessage('Failed to apply ESLint fixes to the line.', 'error')
+      })
+  }))
+
   client.onReady().then(() => {
     client.onNotification(exitCalled, params => {
       workspace.showMessage(
